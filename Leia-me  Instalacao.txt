@@ -1,0 +1,74 @@
+Pre requisite localhost:
+Windows 7/10
+Install XAMPP 7.3
+Install Node v14.xx
+
+instrução localhost:
+---------------------
+1. crie o banco de dados e importe o database.sql para o seu banco de dados recém-criado
+2. copie wabot.zip para C: \ XAMPP \ htdocs \ wabot, extraia aqui (sem criar uma nova pasta)
+2a. na nova instalação, renomeie configs-sample.json para configs.json
+3. edite o arquivo configs.json (se você não alterou nenhuma configuração no XAMPP, o arquivo configs.json padrão deve estar OK)
+4. abra o prompt de comando do Windows, digite 'cd C: \ XAMPP \ htdocs \ wabot'
+5. digite 'npm install' (espere alguns minutos)
+6. digite 'npm start' (se vir 'Banco de dados conectado', você está pronto para prosseguir)
+7. abra o navegador, digite 'localhost / wabot', nome de usuário padrão: a senha será admin: admin
+
+1. Crie o banco de dados e importe o database.sql para o seu banco de dados recém-criado
+2. copie wabot.zip para C: \ XAMPP \ htdocs \ wabot, extraia aqui (sem criar uma nova pasta)
+2a. na nova instalação, renomeie configs-sample.json para configs.json
+3. edite o arquivo configs.json (se você não alterou nenhuma configuração no XAMPP, o arquivo configs.json padrão deve estar OK)
+4. abra o prompt de comando do Windows, digite 'cd C: \ XAMPP \ htdocs \ wabot'
+5. digite 'npm install' (espere alguns minutos)
+6. digite 'npm start' (se vir 'Banco de dados conectado', você está pronto para prosseguir)
+7. abra o navegador, digite 'localhost / wabot', nome de usuário padrão: a senha será admin: admin
+
+======================================================================================
+
+Pre requisite shared hosting:
+linux-based server
+hosting have Node.js installed
+PHP 7.3
+
+instrução de hospedagem compartilhada:
+--------------------------
+1. Faça login em seu cpanel, crie banco de dados e importe database.sql para seu banco de dados recém-criado
+2. abra o gerenciador de arquivos, vá para a pasta do domínio de destino e extraia wabot.zip
+(o aplicativo node.js não pode ser instalado na pasta 'public_html', então crie um subdomínio.)
+2a.na nova instalação, renomeie configs-sample.json para configs.json
+3. edite o arquivo configs.json e combine-o com as credenciais do seu banco de dados
+base_url é o seu exemplo de nome de subdomínio: https://mysub.domain.com/
+callback_url será https://mysub.domain.com/helper/callback.php
+4. em seu cPanel, pesquise por 'Setup Node.js App' e abra-o clicando em 'CREATE APPLICATION'
+Versão Node.js: 12.xx.xx
+Modo de aplicação: Produção
+Raiz do aplicativo: mysub.domain.com
+URL do aplicativo: clique e escolha mysub.domain.com (deixe a caixa de texto vazia)
+Arquivo de inicialização do aplicativo: server.js
+Arquivo de registro do passageiro: deixe vazio
+5. Clique no botão CRIAR
+6. Clique no botão 'executar instalação do NPM'
+7. abra o navegador, digite 'mysub.domain.com', nome de usuário padrão: a senha será admin: admin
+
+
+Configurar cronjob em hospedagem compartilhada:
+1. faça login em seu cpanel, clique em 'Cron Jobs'
+2. use as configurações comuns 'Uma vez por minuto (* * * * *)'
+3. no tipo de comando: curl "https://mysub.domain.com/helper/cron-blast.php"
+clique em 'Adicionar Novo Cron Job'
+4. adicione mais um trabalho crob com o comando: curl "https://mysub.domain.com/helper/cron-blast-media.php"
+clique em 'Adicionar Novo Cron Job'
+
+1. faça login em seu cpanel, clique em 'Cron Jobs'
+2. use as configurações comuns 'Uma vez por minuto (* * * * *)'
+3. nenhum tipo de comando: curl "https://mysub.domain.com/helper/cron-blast.php"
+clique em 'Adicionar Novo Cron Job'
+4. dependência mais um trabalho crob com o comando: curl "https://mysub.domain.com/helper/cron-blast-media.php"
+clique em 'Adicionar Novo Cron Job'
+
+Configurações de linguagem:
+-----------------
+1. Vá para a pasta Lang, abra com o editor de texto: default.php e en.php
+2. Copie o conteúdo de en.php, abra o navegador: translate.google.com e cole-o.
+3. Traduza para o seu idioma e cole o traduzido para default.php
+4. Corrija a tradução errada e salve o default.php

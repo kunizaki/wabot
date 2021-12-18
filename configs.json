@@ -1,0 +1,10 @@
+{
+"dbhost":"localhost",
+"dbuser":"root",
+"dbpass":"",
+"dbname":"warobot",
+"port":"3000",
+"timezone":"America/Sao_Paulo",
+"base_url":"http://localhost/warobot/",
+"callback_url":"http://localhost/warobot/helper/callback.php"
+}

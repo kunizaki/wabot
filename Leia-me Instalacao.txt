@@ -1,0 +1,91 @@
+Pre requisite localhost:
+Windows 7/10
+Install XAMPP 7.3
+Install Node v14.xx
+
+localhost instruction:
+---------------------
+1. create database and import database.sql to your newly created database
+2. copy wabot.zip to C:\XAMPP\htdocs\wabot, extract here (witout making a new folder)
+2a. on new install, please rename configs-sample.json to configs.json
+3. edit configs.json file (if you haven't change any setting on XAMPP, the default configs.json should be OK)
+4. open windows command prompt, type 'cd C:\XAMPP\htdocs\wabot'
+5. type 'npm install' (wait a few minutes)
+6. type 'npm start' (if you see 'Database connected.', then you're good to go)
+7. open browser, type 'localhost/wabot', default username:password will be admin:admin
+
+1. crie o banco de dados e importe o database.sql para o seu banco de dados recém-criado
+2. copie wabot.zip para C: \ XAMPP \ htdocs \ wabot, extraia aqui (sem criar uma nova pasta)
+2a. na nova instalação, renomeie configs-sample.json para configs.json
+3. edite o arquivo configs.json (se você não alterou nenhuma configuração no XAMPP, o arquivo configs.json padrão deve estar OK)
+4. abra o prompt de comando do Windows, digite 'cd C: \ XAMPP \ htdocs \ wabot'
+5. digite 'npm install' (espere alguns minutos)
+6. digite 'npm start' (se vir 'Banco de dados conectado', você está pronto para prosseguir)
+7. abra o navegador, digite 'localhost / wabot', nome de usuário padrão: a senha será admin: admin
+
+======================================================================================
+
+Pre requisite shared hosting:
+linux-based server
+hosting have Node.js installed
+PHP 7.3
+
+shared hosting instruction:
+--------------------------
+1. login to your cpanel, create database and import database.sql to your newly created database
+2. open file manager, go to your target domain folder, extract wabot.zip
+	(node.js app can not be installed on 'public_html' folder, so create a subdomain.)
+2a.on new install please rename configs-sample.json to configs.json
+3. edit configs.json file match it to your database credentials
+	base_url is your subdomain name example: https://mysub.domain.com/
+	callback_url will be https://mysub.domain.com/helper/callback.php
+4. on your cPanel search for 'Setup Node.js App' open it calick 'CREATE APPLICATION'
+	Node.js version: 12.xx.xx
+	Application mode: Production
+	Application root: mysub.domain.com
+	Application URL: click and choose mysub.domain.com (leave textbox empty)
+	Applicationstartup file: server.js
+	Passenger log file: leave empty
+5. Click CREATE button
+6. Click 'run NPM Install' button
+7. open browser, type 'mysub.domain.com', default username:password will be admin:admin
+
+1. Faça login em seu cpanel, crie banco de dados e importe database.sql para seu banco de dados recém-criado
+2. abra o gerenciador de arquivos, vá para a pasta do domínio de destino e extraia wabot.zip
+(o aplicativo node.js não pode ser instalado na pasta 'public_html', então crie um subdomínio.)
+2a.na nova instalação, renomeie configs-sample.json para configs.json
+3. edite o arquivo configs.json e combine-o com as credenciais do seu banco de dados
+base_url é o seu exemplo de nome de subdomínio: https://mysub.domain.com/
+callback_url será https://mysub.domain.com/helper/callback.php
+4. em seu cPanel, pesquise por 'Setup Node.js App' e abra-o clicando em 'CREATE APPLICATION'
+Versão Node.js: 12.xx.xx
+Modo de aplicação: Produção
+Raiz do aplicativo: mysub.domain.com
+URL do aplicativo: clique e escolha mysub.domain.com (deixe a caixa de texto vazia)
+Arquivo de inicialização do aplicativo: server.js
+Arquivo de registro do passageiro: deixe vazio
+5. Clique no botão CRIAR
+6. Clique no botão 'executar instalação do NPM'
+7. abra o navegador, digite 'mysub.domain.com', nome de usuário padrão: a senha será admin: admin
+
+Setup cronjob on shared hosting:
+1. login to your cpanel, click on 'Cron Jobs'
+2. use common settings 'Once Per Minute(* * * * *)'
+3. on Command type: curl "https://mysub.domain.com/helper/cron-blast.php"
+	click 'Add New Cron Job'
+4. add one more crob job with command: curl "https://mysub.domain.com/helper/cron-blast-media.php"
+	click 'Add New Cron Job'
+
+1. faça login em seu cpanel, clique em 'Cron Jobs'
+2. use as configurações comuns 'Uma vez por minuto (* * * * *)'
+3. no tipo de comando: curl "https://mysub.domain.com/helper/cron-blast.php"
+clique em 'Adicionar Novo Cron Job'
+4. adicione mais um trabalho crob com o comando: curl "https://mysub.domain.com/helper/cron-blast-media.php"
+clique em 'Adicionar Novo Cron Job'
+
+Language settings:
+-----------------
+1. Go inside Lang folder, open with text editor: default.php and en.php 
+2. Copy the contents of en.php, then open browser: translate.google.com, paste it.
+3. Translate to your language, then paste the translated to default.php
+4. Fix the wrong translation, then save the default.php
